@@ -57,14 +57,15 @@ def draw_function(lagrange, function, a, b, interpolation_nodes):
     for i in range(len(y_vals)):
         y_vals[i] = function(x[i])
     pyplot.plot(x, y_vals, 'r', label="Oryginalna funkcja")
-    pyplot.plot(x, lagrange.interpolate(x), 'b', linestyle=":", label="Interpolacja funkcji")
-
-    for node in interpolation_nodes:
-        pyplot.plot(node.x, function(node.x), 'rx')
 
     y_inter_vals = y_vals.copy()
     for i in range(len(y_inter_vals)):
         y_inter_vals[i] = lagrange.interpolate(x[i])
+
+    pyplot.plot(x, y_inter_vals, 'b', linestyle=":", label="Interpolacja funkcji")
+
+    for node in interpolation_nodes:
+        pyplot.plot(node.x, function(node.x), 'rx')
 
     r2 = round(100 * metrics.r2_score(y_vals, y_inter_vals), 3)
     if r2 < 0:
@@ -117,7 +118,7 @@ def main():
         print("Podaj górny przedział funkcji")
         b = input("\t\t>>> ")
     number_of_nodes = 0
-    while int(number_of_nodes) <= 1:
+    while int(number_of_nodes) <= 0:
         print("Podaj ilość węzłów interpolacyjnych")
         number_of_nodes = input("\t\t>>> ")
 
