@@ -70,7 +70,7 @@ def draw_function(lagrange, function, a, b, interpolation_nodes):
     r2 = round(100 * metrics.r2_score(y_vals, y_inter_vals), 3)
     if r2 < 0:
         r2 = 0
-    pyplot.title("Dokładnośc interpolacji: " + str(r2) + "%")
+    pyplot.title("Dokładność interpolacji: " + str(r2) + "%")
 
     pyplot.xticks(np.arange(min(x), max(x) + 1, 1.0))
     pyplot.legend()
