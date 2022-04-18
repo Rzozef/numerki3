@@ -117,7 +117,7 @@ def main():
         print("Podaj górny przedział funkcji")
         b = input("\t\t>>> ")
     number_of_nodes = 0
-    while int(number_of_nodes) <= 0:
+    while int(number_of_nodes) <= 1:
         print("Podaj ilość węzłów interpolacyjnych")
         number_of_nodes = input("\t\t>>> ")
 
