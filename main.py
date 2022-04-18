@@ -76,14 +76,6 @@ def draw_function(lagrange, function, a, b, interpolation_nodes):
     pyplot.show()
 
 
-# obliczanie x i y dla wybranej funkcji na przedziale (a, b) z zadanym krokiem
-# def calculate_function(a, b, function, step=0.01):
-#     points = []
-#     for i in np.arange(a, b, step):
-#         points.append(Point(i, function(i)))
-#     return points
-
-
 # obliczanie wezlow Czebyszewa
 def calculate_nodes(number_of_nodes, a, b, function):
     nodes = []
@@ -93,21 +85,6 @@ def calculate_nodes(number_of_nodes, a, b, function):
 
         nodes.append(Point(x, function(x)))
     return nodes
-
-
-# interpolacja Lagrange'a
-# def interpolation(number_of_nodes, nodes, a, b, step=0.01):
-#     interpolated_points = []
-#     for i in np.arange(a, b, step):
-#         y = 0
-#         for j in range(0, number_of_nodes):
-#             helper = nodes[j].y
-#             for k in range(0, number_of_nodes):
-#                 if j != k:
-#                     helper *= ((i - nodes[k].x) / (nodes[j].x - nodes[k].x))
-#             y += helper
-#         interpolated_points.append(Point(i, y))
-#     return interpolated_points
 
 
 def main():
@@ -129,7 +106,6 @@ def main():
         print("Wybierz funkcje:")
         for i in range(len(functions)):
             print(f"\t{i + 1}. {functions[i][0]}")
-        # todo dodac kolejne funkcje i przerobic odpowiednio if nizej
         func_choice = input("\t\t>>> ")
         if int(func_choice) not in range(1, len(functions) + 1):
             print("Nie ma takiej opcji w menu")
